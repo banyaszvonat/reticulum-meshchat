@@ -2622,8 +2622,8 @@ class ReticulumMeshChat:
             "display_name": display_name,
             "custom_display_name": self.get_custom_destination_display_name(announce.destination_hash),
             "lxmf_user_icon": lxmf_user_icon,
-            "created_at": announce.created_at,
-            "updated_at": announce.updated_at,
+            "created_at": announce.created_at.isoformat(),
+            "updated_at": announce.updated_at.isoformat(),
         }
 
     # convert database favourite to a dictionary
@@ -2633,8 +2633,8 @@ class ReticulumMeshChat:
             "destination_hash": favourite.destination_hash,
             "display_name": favourite.display_name,
             "aspect": favourite.aspect,
-            "created_at": favourite.created_at,
-            "updated_at": favourite.updated_at,
+            "created_at": favourite.created_at.isoformat(),
+            "updated_at": favourite.updated_at.isoformat(),
         }
 
     # convert database lxmf message to a dictionary
