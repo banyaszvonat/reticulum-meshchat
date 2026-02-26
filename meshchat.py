@@ -1527,12 +1527,12 @@ class ReticulumMeshChat:
             # determine when latest announce was received
             latest_announce_at = None
             if latest_announce is not None:
-                latest_announce_at = datetime.fromisoformat(latest_announce.updated_at)
+                latest_announce_at = datetime.fromisoformat(latest_announce.updated_at.isoformat())
 
             # determine when latest lxmf message was received
             latest_lxmf_message_at = None
             if latest_lxmf_message is not None:
-                latest_lxmf_message_at = datetime.fromisoformat(latest_lxmf_message.created_at)
+                latest_lxmf_message_at = datetime.fromisoformat(latest_lxmf_message.created_at.isoformat())
 
             # get signal metrics from latest announce
             if latest_announce is not None:
