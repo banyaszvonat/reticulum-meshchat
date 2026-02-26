@@ -1555,7 +1555,7 @@ class ReticulumMeshChat:
                     "snr": snr,
                     "rssi": rssi,
                     "quality": quality,
-                    "updated_at": updated_at,
+                    "updated_at": updated_at.isoformat(),
                 },
             })
 
