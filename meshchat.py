@@ -2658,8 +2658,8 @@ class ReticulumMeshChat:
             "rssi": db_lxmf_message.rssi,
             "snr": db_lxmf_message.snr,
             "quality": db_lxmf_message.quality,
-            "created_at": db_lxmf_message.created_at,
-            "updated_at": db_lxmf_message.updated_at,
+            "created_at": db_lxmf_message.created_at.isoformat(),
+            "updated_at": db_lxmf_message.updated_at.isoformat(),
         }
 
     # updates the lxmf user icon for the provided destination hash
@@ -3278,8 +3278,8 @@ class ReticulumMeshChat:
             return True
 
         # conversation is unread if last read at is before the latest incoming message creation date
-        conversation_last_read_at = datetime.strptime(lxmf_conversation_read_state.last_read_at, "%Y-%m-%d %H:%M:%S.%f%z")
-        conversation_latest_message_at = datetime.strptime(latest_incoming_lxmf_message.created_at, "%Y-%m-%d %H:%M:%S.%f%z")
+        conversation_last_read_at = datetime.strptime(str(lxmf_conversation_read_state.last_read_at), "%Y-%m-%d %H:%M:%S.%f%z")
+        conversation_latest_message_at = datetime.strptime(str(latest_incoming_lxmf_message.created_at), "%Y-%m-%d %H:%M:%S.%f%z")
         return conversation_last_read_at < conversation_latest_message_at
 
     # returns number of messages that failed to send in a conversation
